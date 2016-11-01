@@ -13,6 +13,11 @@ angular
     'ui.router',
     'ui.bootstrap',
     'angular-loading-bar',
+    'Property',
+    'Local',
+    'Tenant',
+    'Contract',
+    'Payment',
   ])
   .config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider) {
 
@@ -89,10 +94,14 @@ angular
           }
         }
       })
-
+      .state('rentals.property',{
+          templateUrl:'views/rentals/property/property.html',
+          url:'/property',
+      })
       .state('rentals.contract',{
           templateUrl:'views/rentals/contract/contract.html',
-          url:'/contract'
+          url:'/contract',
+          controller: 'PropertyCtrl'
       })
       .state('rentals.local',{
           templateUrl:'views/rentals/local/local.html',
@@ -101,10 +110,6 @@ angular
       .state('rentals.tenant',{
           templateUrl:'views/rentals/tenant/tenant.html',
           url:'/tenant'
-      })
-      .state('rentals.property',{
-          templateUrl:'views/rentals/property/property.html',
-          url:'/property'
       })
       .state('rentals.payment',{
           templateUrl:'views/rentals/payment/payment.html',
