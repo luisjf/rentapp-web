@@ -1,30 +1,16 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="login-panel panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Please Sign In</h3>
-                </div>
-                <div class="panel-body">
-                    <form role="form">
-                        <fieldset>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                </label>
-                            </div>
-                            <!-- Change this to a button or input when using this as a form -->
-                            <a ui-sref="dashboard.home" class="btn btn-lg btn-success btn-block">Login</a>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
+<link rel="stylesheet" href="styles/login.css">
+<div class="login" ng-controller="TenantCtrl as tenant">
+    <div class="login-page">
+        <h3 style="color: rgba(255, 255, 255, 0.85);">Rentapp / Inicio de Sesión</h3>
+        <div class="form">
+
+            <form class="login-form">
+
+                <input type="text" placeholder="correo" />
+                <input type="password" placeholder="contraseña" />
+                <button>ENVIAR</button>
+                <!-- <p class="message">Not registered? <a href="#">Create an account</a></p> -->
+            </form>
         </div>
     </div>
 </div>

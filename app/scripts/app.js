@@ -19,7 +19,7 @@ angular
     'Contract',
     'Payment',
   ])
-  .config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider) {
+  .config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider' ,function ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider) {
 
     $ocLazyLoadProvider.config({
       debug:false,
@@ -77,6 +77,9 @@ angular
                   files:['bower_components/angular-touch/angular-touch.js']
                 })
             }
+        },
+        data: {
+          requireLogin: true // this property will apply to all children of 'app'
         }
     })
       .state('rentals.home',{
@@ -117,7 +120,24 @@ angular
       })
       .state('login',{
         templateUrl:'views/pages/login.html',
-        url:'/login'
+        url:'/login',
+        data: {
+          requireLogin: false
+        }
     })
 
-  }]);
+  }])
+
+  .run(function ($rootScope, $state) {
+
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
+      var requireLogin = toState.data.requireLogin;
+
+      if (requireLogin && typeof $rootScope.currentUser === 'undefined') {
+        // event.preventDefault();
+        // $state.go('login');
+      }
+    });
+  })
+
+  ;
