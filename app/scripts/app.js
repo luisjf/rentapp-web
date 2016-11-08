@@ -119,7 +119,7 @@ angular
           url:'/payment'
       })
       .state('login',{
-        templateUrl:'views/pages/login.html',
+        templateUrl:'views/rentals/login/login.html',
         url:'/login',
         data: {
           requireLogin: false
