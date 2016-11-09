@@ -1,9 +1,13 @@
 angular
-    .module('Tenant', [])
+    .module('Tenant', ['TenantService'])
     .controller('TenantCtrl', TenantCtrl);
 
-  function TenantCtrl(){
+TenantCtrl.$inject = ['getTenants'];
+
+  function TenantCtrl(getTenants){
     var vm = this;
 
     vm.hello = 'Hola Tenant';
+    vm.tenants = getTenants.search();
+
   }
